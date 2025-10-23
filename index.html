@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婚姻家庭亏欠值计算器</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💕 婚姻家庭亏欠值计算器</h1>
+            <p>记录彼此的付出，让爱更有温度</p>
+        </header>
+
+        <!-- 计分阶段选择 -->
+        <div class="phase-selector">
+            <button id="malePhaseBtn" class="phase-btn active">男方计分</button>
+            <button id="femalePhaseBtn" class="phase-btn">女方计分</button>
+            <button id="resultPhaseBtn" class="phase-btn">结果分析</button>
+        </div>
+
+        <!-- 男方计分界面 -->
+        <div id="malePhase" class="phase-content active">
+            <h2>👨 男方计分</h2>
+            <div class="score-display">
+                <span>当前得分：</span>
+                <span id="maleScore" class="score">0</span>
+            </div>
+            <div id="maleCategories" class="categories"></div>
+        </div>
+
+        <!-- 女方计分界面 -->
+        <div id="femalePhase" class="phase-content">
+            <h2>👩 女方计分</h2>
+            <div class="score-display">
+                <span>当前得分：</span>
+                <span id="femaleScore" class="score">0</span>
+            </div>
+            <div id="femaleCategories" class="categories"></div>
+        </div>
+
+        <!-- 结果分析界面 -->
+        <div id="resultPhase" class="phase-content">
+            <h2>📊 结果分析</h2>
+            <div class="result-summary">
+                <div class="score-comparison">
+                    <div class="score-item male">
+                        <h3>👨 男方总分</h3>
+                        <div id="finalMaleScore" class="final-score">0</div>
+                    </div>
+                    <div class="score-item female">
+                        <h3>👩 女方总分</h3>
+                        <div id="finalFemaleScore" class="final-score">0</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+                <div class="suggestions">
+                    <h3>💡 改进建议</h3>
+                    <div id="suggestionsList" class="suggestions-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

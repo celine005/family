@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 阶段选择器 */
+.phase-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.phase-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 5px;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.phase-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.phase-btn.active {
+    background: white;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* 阶段内容 */
+.phase-content {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.phase-content.active {
+    display: block;
+}
+
+.phase-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #667eea;
+}
+
+/* 分数显示 */
+.score-display {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 15px;
+    font-size: 1.2rem;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 分类样式 */
+.category {
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.category:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.category-header {
+    background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.category-header:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.category-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.category-name {
+    flex: 1;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.category-score {
+    background: #667eea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* 子分类样式 */
+.subcategories {
+    display: none;
+    background: #f8f9ff;
+}
+
+.subcategory {
+    border-top: 1px solid #e0e0e0;
+}
+
+.subcategory-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.subcategory-header:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.subcategory-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.subcategory-name {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.subcategory-score {
+    background: #764ba2;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+/* 事项样式 */
+.items {
+    display: none;
+    background: white;
+    padding: 0 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background: rgba(102, 126, 234, 0.05);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-count {
+    background: #e8ecff;
+    color: #667eea;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+/* 结果分析样式 */
+.result-summary {
+    text-align: center;
+}
+
+.score-comparison {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.score-item {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.score-item.male {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.score-item.female {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.score-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.final-score {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* 图表容器 */
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 建议样式 */
+.suggestions {
+    text-align: left;
+}
+
+.suggestions h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #667eea;
+    font-size: 1.5rem;
+}
+
+.suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.suggestion-item {
+    background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+}
+
+.suggestion-target {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.suggestion-message {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.suggestion-items {
+    list-style: none;
+    padding-left: 0;
+}
+
+.suggestion-items li {
+    background: white;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #764ba2;
+    transition: all 0.3s ease;
+}
+
+.suggestion-items li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .phase-selector {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+    
+    .phase-btn {
+        margin: 5px 0;
+        border-radius: 10px;
+    }
+    
+    .score-comparison {
+        flex-direction: column;
+    }
+    
+    .category-header {
+        padding: 15px;
+    }
+    
+    .category-name {
+        font-size: 1.1rem;
+    }
+    
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .item-controls {
+        align-self: flex-end;
+    }
+    
+    .final-score {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .phase-content {
+        padding: 20px;
+    }
+    
+    .category-header {
+        padding: 12px;
+    }
+    
+    .subcategory-header {
+        padding: 12px;
+    }
+    
+    .item {
+        padding: 12px 0;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.phase-content.active {
+    animation: fadeIn 0.5s ease;
+}
+
+.category {
+    animation: fadeIn 0.3s ease;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
