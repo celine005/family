@@ -19,6 +19,7 @@
             <button id="malePhaseBtn" class="phase-btn active">男方计分</button>
             <button id="femalePhaseBtn" class="phase-btn">女方计分</button>
             <button id="resultPhaseBtn" class="phase-btn">结果分析</button>
+            <button id="configPhaseBtn" class="phase-btn">配置编辑</button>
         </div>
 
         <!-- 男方计分界面 -->
@@ -63,6 +64,79 @@
                     <div id="suggestionsList" class="suggestions-list"></div>
                 </div>
             </div>
+        </div>
+
+        <!-- 新增：配置编辑页面 -->
+        <div id="configPhase" class="phase-content">
+            <section class="config-panel">
+                <h2>配置编辑</h2>
+                <p>你可以在下方新增/修改/删除类别、子分类和事件（分值可为正或负）。当前内置数据仅作为初始化，均可调整。</p>
+        
+                <div class="config-forms">
+                    <div class="config-card">
+                        <h3>添加类别</h3>
+                        <div class="form-row">
+                            <label>类别名称</label>
+                            <input type="text" id="addCategoryName" placeholder="如：陪伴" />
+                        </div>
+                        <div class="form-row">
+                            <label>图标（可选）</label>
+                            <input type="text" id="addCategoryIcon" placeholder="如：💞" />
+                        </div>
+                        <button id="addCategoryBtn" class="primary">添加类别</button>
+                    </div>
+        
+                    <div class="config-card">
+                        <h3>添加子分类</h3>
+                        <div class="form-row">
+                            <label>所属类别</label>
+                            <select id="addSubCategoryCategory"></select>
+                        </div>
+                        <div class="form-row">
+                            <label>子分类名称</label>
+                            <input type="text" id="addSubCategoryName" placeholder="如：深入沟通" />
+                        </div>
+                        <div class="form-row">
+                            <label>图标（可选）</label>
+                            <input type="text" id="addSubCategoryIcon" placeholder="如：🧠" />
+                        </div>
+                        <button id="addSubCategoryBtn" class="primary">添加子分类</button>
+                    </div>
+        
+                    <div class="config-card">
+                        <h3>添加事件</h3>
+                        <div class="form-row">
+                            <label>所属类别</label>
+                            <select id="addItemCategory"></select>
+                        </div>
+                        <div class="form-row">
+                            <label>所属子分类</label>
+                            <select id="addItemSubcategory"></select>
+                        </div>
+                        <div class="form-row">
+                            <label>事件名称</label>
+                            <input type="text" id="addItemName" placeholder="如：沟通冲突" />
+                        </div>
+                        <div class="form-row">
+                            <label>描述（可选）</label>
+                            <input type="text" id="addItemDesc" placeholder="对事件的说明" />
+                        </div>
+                        <div class="form-row">
+                            <label>分值（可负数）</label>
+                            <input type="number" id="addItemScore" placeholder="如：-2 或 3" step="1" />
+                        </div>
+                        <button id="addItemBtn" class="primary">添加事件</button>
+                    </div>
+        
+                    <div class="config-card warning">
+                        <h3>数据管理</h3>
+                        <p>若出错或想回到初始内容，可恢复默认数据（会清空本地修改与统计）。</p>
+                        <button id="resetDataBtn" class="danger">恢复默认数据</button>
+                    </div>
+                </div>
+        
+                <div class="config-tree" id="configTree"></div>
+            </section>
         </div>
     </div>
 
